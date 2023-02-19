@@ -1,18 +1,19 @@
-package Demo1;
+package jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class Demo {
+public class Demo1 {
     /*
     JDBC的快速入门
      */
     public static void main(String[] args) throws Exception {
         // 1 注册驱动
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.jdbc.Driver");//可以不用写
         // 2 获取连接
-        String url = "jdbc:mysql://127.0.0.1:3306/db1";
+        //如果连接的是本机mysql服务器，兵器mysql服务默认端口是3306，则url可以简写为：jdbc:mysql://数据库名称
+        String url = "jdbc:mysql://127.0.0.1:3306/db1?useSSL=false";
         String username = "root";
         String password = "1234";
         Connection conn = DriverManager.getConnection(url, username, password);
