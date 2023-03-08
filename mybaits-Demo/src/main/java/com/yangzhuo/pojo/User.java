@@ -1,4 +1,4 @@
-package pojo;
+package com.yangzhuo.pojo;
 
 public class User {
     private Integer id           ;

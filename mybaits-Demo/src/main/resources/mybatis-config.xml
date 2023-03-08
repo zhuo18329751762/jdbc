@@ -16,7 +16,11 @@
         </environment>
     </environments>
     <mappers>
+
         <!--加载sql映射文件-->
-        <mapper resource="UserMapper.xml"/>
+        <!--普通方法-->
+        <!-- <mapper resource="com/yangzhuo/mapper/UserMapper.xml"/>-->
+        <!--简便方法：包扫描的方式-->
+        <package name="com.yangzhuo.mapper"/>
     </mappers>
 </configuration>
