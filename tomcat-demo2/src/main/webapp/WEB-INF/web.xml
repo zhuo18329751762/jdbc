@@ -3,4 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    
+    
+    <!--
+        Servlet 全类名
+    -->
+    <servlet>
+        <servlet-name>demo10</servlet-name>
+        <servlet-class>com.zhuoyang.web.ServletDemo10</servlet-class>
+    </servlet>
+    <!--    Servlet访问路径        -->
+    <servlet-mapping>
+        <servlet-name>demo10</servlet-name>
+        <url-pattern>/demo10</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
+
+
+
+
+

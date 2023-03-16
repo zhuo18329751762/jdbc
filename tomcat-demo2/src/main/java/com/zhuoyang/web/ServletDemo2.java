@@ -7,14 +7,15 @@ import java.io.IOException;
 @WebServlet(value = "/demo2",loadOnStartup = 1)
 public class ServletDemo2 implements Servlet {
 
-
+    private ServletConfig config;
     /*
     初始化方法
     1:调用时机：默认情况下，Servlet被第一次访问时，调用
     2:调用次数：1
      */
     @Override
-    public void init(ServletConfig servletConfig) throws ServletException {
+    public void init(ServletConfig config) throws ServletException {
+        this.config=config;
         System.out.println("init...");
     }
     /*
@@ -27,6 +28,10 @@ public class ServletDemo2 implements Servlet {
         System.out.println("servlet hello world~");
     }
 
+    @Override
+    public ServletConfig getServletConfig() {
+        return config;
+    }
     /*
     销毁方法
     1:调用时机:内存释放或者服务器关闭时,Servlet对象会被销毁，调用
@@ -44,8 +49,5 @@ public class ServletDemo2 implements Servlet {
 
 
 
-    @Override
-    public ServletConfig getServletConfig() {
-        return null;
-    }
+
 }
