@@ -1,7 +1,6 @@
 package com.yangzhuo.mapper;
 
-import com.yangzhuo.pojo.Brand;
-import org.apache.ibatis.annotations.Param;
+import com.yangzhuo.Brand;
 
 import java.util.List;
 import java.util.Map;

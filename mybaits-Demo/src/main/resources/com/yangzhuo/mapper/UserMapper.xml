@@ -6,7 +6,7 @@
 namespace:名称空间
 -->
 <mapper namespace="com.yangzhuo.mapper.UserMapper">
-    <select id="selectAll" resultType="com.yangzhuo.pojo.User">
+    <select id="selectAll" resultType="com.yangzhuo.User">
         select * from tb_user;
     </select>
 
@@ -17,7 +17,7 @@ namespace:名称空间
     <!--
         参数传递
     -->
-    <select id="select" resultType="com.yangzhuo.pojo.User">
+    <select id="select" resultType="com.yangzhuo.User">
         select *
         from tb_user
         where

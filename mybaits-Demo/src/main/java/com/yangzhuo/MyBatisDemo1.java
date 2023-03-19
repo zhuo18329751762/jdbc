@@ -1,6 +1,5 @@
 package com.yangzhuo;
 
-import com.yangzhuo.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -13,7 +12,7 @@ import java.util.List;
 /*
 mybatis快速入门
  */
-public class MyBatisDemo1 {
+public class  MyBatisDemo1 {
     public static void main(String[] args) throws IOException {
         // 1 加载mybatis的核心配置文件，获取SqlSessionFactory
         String resource = "mybatis-config.xml";

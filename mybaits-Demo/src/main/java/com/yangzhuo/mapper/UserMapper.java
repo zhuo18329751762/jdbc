@@ -1,6 +1,6 @@
 package com.yangzhuo.mapper;
 
-import com.yangzhuo.pojo.User;
+import com.yangzhuo.User;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 

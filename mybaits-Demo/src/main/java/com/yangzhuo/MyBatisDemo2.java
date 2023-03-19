@@ -1,7 +1,6 @@
 package com.yangzhuo;
 
 import com.yangzhuo.mapper.UserMapper;
-import com.yangzhuo.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

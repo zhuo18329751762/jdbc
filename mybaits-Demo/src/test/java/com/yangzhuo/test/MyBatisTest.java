@@ -2,8 +2,8 @@ package com.yangzhuo.test;
 
 import com.yangzhuo.mapper.BrandMapper;
 import com.yangzhuo.mapper.UserMapper;
-import com.yangzhuo.pojo.Brand;
-import com.yangzhuo.pojo.User;
+import com.yangzhuo.Brand;
+import com.yangzhuo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

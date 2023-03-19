@@ -22,7 +22,7 @@ resultMap:
 <!--        id, brand_name as brandName, company_name as companyName, ordered, description, status-->
 <!--    </sql>-->
 
-<!--    <select id="selectAll" resultType="com.yangzhuo.pojo.Brand">-->
+<!--    <select id="selectAll" resultType="Brand">-->
 <!--        select-->
 <!--<include refid="brand_column"></include>-->
 <!--        from tb_brand;-->
@@ -33,7 +33,7 @@ resultMap:
         id:唯一标识
         type:映射的类型，支持别名
     -->
-    <resultMap id="brandResultMap" type="com.yangzhuo.pojo.Brand">
+    <resultMap id="brandResultMap" type="com.yangzhuo.Brand">
         <!--
             id:完成主键字段的映射
                 column:表的列名
@@ -55,7 +55,7 @@ resultMap:
     </select>
 
 
-    <!--    <select id="selectAll" resultType="com.yangzhuo.pojo.Brand">-->
+    <!--    <select id="selectAll" resultType="Brand">-->
 <!--        select id, brand_name as brandName, company_name as companyName, ordered, description, status-->
 <!--        from tb_brand;-->
 <!--    </select>-->
