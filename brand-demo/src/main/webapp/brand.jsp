@@ -14,9 +14,9 @@
     <title>Title</title>
 </head>
 <body>
-<input type="button" value="新增"><br>
+<input type="button" value="新增" id="add"><br>
 <hr>
-<table border="1" cellspacing="0" width="800">
+<table border="1" cellspacing="0" width="80%">
     <tr>
         <th>序号</th>
         <th>品牌名称</th>
@@ -42,20 +42,19 @@
                 <td>禁用</td>
             </c:if>
 
-            <td><a href="#">修改</a> <a href="#">删除</a></td>
+            <td><a href="/brand-demo/selectByIdServlet?id=${brand.id}">修改</a>
+                <a href="/brand-demo/deleteByIdServlet?id=${brand.id}">删除</a></td>
         </tr>
 
     </c:forEach>
 
-
-
-
-
 </table>
 
-<hr>
-<c:forEach begin="1" end="10" step="1" var="i">
-    <a href="#">${i}</a>
-</c:forEach>
+<script>
+    document.getElementById("add").onclick=function (){
+        //跳转路径
+        location.href="/brand-demo/addBrand.jsp";
+    }
+</script>
 </body>
 </html>
