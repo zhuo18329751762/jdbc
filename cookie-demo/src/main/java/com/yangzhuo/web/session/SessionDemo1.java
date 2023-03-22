@@ -13,6 +13,8 @@ public class SessionDemo1 extends HttpServlet {
         // 1 获取Session对象
         HttpSession session = request.getSession();
         // 2 存储数据
+        session.setAttribute("username","zs");
+
     }
 
     @Override
