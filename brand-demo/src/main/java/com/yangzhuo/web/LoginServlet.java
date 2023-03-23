@@ -13,6 +13,7 @@ public class LoginServlet extends HttpServlet {
     private UserService service=new UserService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("hello");
         // 1 获取用户名与密码
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -24,7 +25,6 @@ public class LoginServlet extends HttpServlet {
         // 3 判断
         if(user!=null){
             //登陆成功,跳转到查询所有的BrandServlet
-
             //判断用户是否勾选记住我
             if("1".equals(remember)){
                 //勾选了，发送cookie

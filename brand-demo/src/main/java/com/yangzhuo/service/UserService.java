@@ -1,6 +1,8 @@
 package com.yangzhuo.service;
 
+import com.yangzhuo.mapper.BrandMapper;
 import com.yangzhuo.mapper.UserMapper;
+import com.yangzhuo.pojo.Brand;
 import com.yangzhuo.pojo.User;
 import com.yangzhuo.util.SqlSessionFactoryUtils;
 import org.apache.ibatis.session.SqlSession;
@@ -41,6 +43,27 @@ public class UserService {
         }
         sqlSession.close();
         return u==null;
+    }
+    /**
+     * 根据用户名查询用是否存在
+     *
+     */
+    public boolean selectByUserName(String username){
+        // 2 获取SqlSession
+        SqlSession sqlSession = factory.openSession();
+        // 3 获取BrandMapper
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        // 4 调用方法
+        User user = mapper.selectByUsername(username);
+
+        //关闭资源
+        sqlSession.close();
+        if(user!=null){
+            return true;
+        }else{
+            return false;
+        }
 
     }
+
 }
