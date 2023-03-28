@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns: xmlns:>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <input type="button" value="一个按钮" v-on:click="show()"><br>
+    <input type="button" value="一个按钮" @click="show()"><br>
+
+
+    <input v-model="url">
+</div>
+<script src="js/vue.js"></script>
+
+
+<script>
+  //创建vue核心对象
+  new Vue({
+    el:"#app",
+    data(){
+      return{
+             username:"",
+             url:"http://www.baidu.com"
+           }
+    },
+      methods:{
+        show(){
+         alert("我被点了...")
+        }
+      }
+  });
+</script>
+</body>
+</html>

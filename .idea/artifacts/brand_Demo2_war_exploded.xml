@@ -11,7 +11,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="brand-Demo2" />
+          <element id="module-output" name="brand-demo2" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.5" />
@@ -24,7 +24,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/brand-demo2/target/brand-Demo2-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="brand-Demo2/web/Web" />
+      <element id="javaee-facet-resources" facet="brand-demo2/web/Web" />
     </root>
   </artifact>
 </component>
