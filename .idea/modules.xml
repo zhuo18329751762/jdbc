@@ -3,11 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ajax-demo/ajax-demo.iml" filepath="$PROJECT_DIR$/ajax-demo/ajax-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/brand-JavaWed/brand-case.iml" filepath="$PROJECT_DIR$/brand-JavaWed/brand-case.iml" />
       <module fileurl="file://$PROJECT_DIR$/brand-demo/brand-demo.iml" filepath="$PROJECT_DIR$/brand-demo/brand-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/brand-Demo2/brand-demo2.iml" filepath="$PROJECT_DIR$/brand-Demo2/brand-demo2.iml" />
       <module fileurl="file://$PROJECT_DIR$/cookie-demo/cookie-demo.iml" filepath="$PROJECT_DIR$/cookie-demo/cookie-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/filter-demo/filter-demo.iml" filepath="$PROJECT_DIR$/filter-demo/filter-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/javaWeb.iml" filepath="$PROJECT_DIR$/.idea/javaWeb.iml" />
       <module fileurl="file://$PROJECT_DIR$/jdbcDemo/jdbcDemo.iml" filepath="$PROJECT_DIR$/jdbcDemo/jdbcDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/jsp-demo/jsp-demo.iml" filepath="$PROJECT_DIR$/jsp-demo/jsp-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybaits-Demo/mybaits-Demo.iml" filepath="$PROJECT_DIR$/mybaits-Demo/mybaits-Demo.iml" />

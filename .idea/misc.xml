@@ -4,6 +4,7 @@
     <file type="web" url="file://$PROJECT_DIR$/ajax-demo" />
     <file type="web" url="file://$PROJECT_DIR$/brand-demo" />
     <file type="web" url="file://$PROJECT_DIR$/brand-demo2" />
+    <file type="web" url="file://$PROJECT_DIR$/brand-JavaWed" />
     <file type="web" url="file://$PROJECT_DIR$/cookie-demo" />
     <file type="web" url="file://$PROJECT_DIR$/filter-demo" />
     <file type="web" url="file://$PROJECT_DIR$/jsp-demo" />
@@ -26,6 +27,8 @@
         <option value="$PROJECT_DIR$/ajax-demo/pom.xml" />
         <option value="$PROJECT_DIR$/brand-demo2/pom.xml" />
         <option value="$PROJECT_DIR$/vue-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/brand-JavaWed/pom.xml" />
       </list>
     </option>
   </component>

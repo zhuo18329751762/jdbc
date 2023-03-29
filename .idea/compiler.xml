@@ -11,6 +11,7 @@
         <module name="brand-demo2" />
         <module name="filter-demo" />
         <module name="ajax-demo" />
+        <module name="brand-case" />
         <module name="request-demo" />
         <module name="jsp-demo" />
         <module name="brand-demo" />
@@ -21,10 +22,12 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ajax-demo" target="8" />
+      <module name="brand-case" target="8" />
       <module name="brand-demo" target="8" />
       <module name="brand-demo2" target="8" />
       <module name="cookie-demo" target="8" />
       <module name="filter-demo" target="8" />
+      <module name="javaWeb" target="8" />
       <module name="jsp-demo" target="8" />
       <module name="mybaits-Demo" target="8" />
       <module name="request-demo" target="8" />
