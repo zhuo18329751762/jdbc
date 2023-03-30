@@ -10,4 +10,7 @@
         <result column="brand_name" property="brandName"></result>
         <result column="company_name" property="companyName"></result>
     </resultMap>
+
+
+
 </mapper>

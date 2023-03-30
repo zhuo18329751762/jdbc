@@ -44,7 +44,7 @@
 
     <el-row>
 
-        <el-button type="danger" plain>批量删除</el-button>
+        <el-button type="danger" plain @click="deleteByIds">批量删除 </el-button>
         <el-button type="primary" plain @click="dialogVisible = true">新增</el-button>
 
     </el-row>
@@ -93,7 +93,7 @@
             width="30%"
             >
         <el-form ref="form" :model="brand" label-width="80px">
-            <el-form-item label="品牌名称">
+            <el-form-item label="品牌名称" >
                 <el-input v-model="brand.brandName" ></el-input>
             </el-form-item>
 
@@ -160,7 +160,7 @@
                     label="排序">
             </el-table-column>
             <el-table-column
-                    prop="status"
+                    prop="statusStr"
                     align="center"
                     label="当前状态">
             </el-table-column>
@@ -170,7 +170,7 @@
                     label="操作">
 
                 <el-row>
-                    <el-button type="primary" plain @click="updateVisible = true">修改</el-button>
+                    <el-button type="primary" plain @click="update">修改</el-button>
                     <el-button type="danger">删除</el-button>
                 </el-row>
 
@@ -187,7 +187,7 @@
             :page-sizes="[5, 10, 15, 20]"
             :page-size="5"
             layout="total, sizes, prev, pager, next, jumper"
-            :total="400">
+            :total="totalCount">
     </el-pagination>
 
 </div>
@@ -202,24 +202,50 @@
         el: "#app",
         //异步请求函数
         mounted(){
-            //当页面加载完成后，发送异步请求，获取数据
-            var _this=this;
-            axios({
-                method:"get",
-                url:"http://localhost:8080/brand-case/selectAllServlet",
-            }).then(function (resp){
-                _this.tableData=resp.data;
-            })
+            this.selectAll();
+            // //当页面加载完成后，发送异步请求，获取数据
+            // var _this=this;
+            // axios({
+            //     method:"get",
+            //     url:"http://localhost:8080/brand-case/brand/selectByPage?currentPage=1&pageSize=5",
+            // }).then(function (resp){
+            //     _this.tableData=resp.data.rows;
+            //     //设置总记录数
+            //     _this.totalCount=resp.data.totalCount;
+            // })
         },
         methods: {
-            // 查询所有数据方法
+            // 查询分页数据
             selectAll(){
+                // var _this=this;
+                // axios({
+                //     method:"get",
+                //     url:"http://localhost:8080/brand-case/brand/selectAll",
+                // }).then(function (resp){
+                //     _this.tableData=resp.data;
+                // })
+
+                // var _this=this;
+                // axios({
+                //     method:"post",
+                //     url:"http://localhost:8080/brand-case/brand/selectByPageAndCondition?currentPage="+this.currentPage+"&pageSize="+this.pageSize,
+                //     data:this.brand,
+                // }).then(function (resp){
+                //     //设置表格数据
+                //     _this.tableData=resp.data.rows;
+                //     //设置总记录数
+                //     _this.totalCount=resp.data.totalCount;
+                // })
                 var _this=this;
                 axios({
-                    method:"get",
-                    url:"http://localhost:8080/brand-case/selectAllServlet",
-                }).then(function (resp){
-                    _this.tableData=resp.data;
+                    method:"post",
+                    url:"http://localhost:8080/brand-case/brand/selectByPageAndCondition?currentPage="+this.currentPage+"&pageSize="+this.pageSize,
+                    data:this.brand,
+                }).then(resp =>{
+                    //设置表格数据
+                    this.tableData=resp.data.rows;
+                    //设置总记录数
+                    this.totalCount=resp.data.totalCount;
                 })
             },
             tableRowClassName({row, rowIndex}) {
@@ -235,9 +261,14 @@
                 this.multipleSelection = val;
                 console.log(this.multipleSelection)
             },
+            // tableRowClassName(val){
+            //     this.multipleSelection = val;
+            //     console.log(this.multipleSelection)
+            // },
             // 查询方法
             onSubmit() {
                 console.log(this.brand);
+                this.selectAll();
             },
             // 添加数据
             addBrand(){
@@ -246,7 +277,7 @@
                 //发送ajax请求，添加数据
                 axios({
                     method: "post",
-                    url:"http://localhost:8080/brand-case/addServlet",
+                    url:"http://localhost:8080/brand-case/brand/add",
                     data:_this.brand
                 }).then(function (resp){
                     if(resp.data=="success"){
@@ -265,41 +296,131 @@
             },
             // 更新数据
             update(){
-                _this=this;
-                //发送ajax请求，添加数据
-                axios({
-                    method: "post",
-                    url:"http://localhost:8080/brand-case/updateServlet",
-                    data:_this.brand
-                }).then(function (resp){
-                    if(resp.data=="success"){
-                        //添加成功
-                        // 1 关闭窗口
-                        _this.updateVisible=false;
-                        // 2 重新查询
-                        _this.selectAll();
-                        // 3 提示用户更新成功
-                        _this.$message({
-                            message: '更新成功',
-                            type: 'success'
-                        });
-                    }
-                })
+                // 1 创建id编号
+                console.log(this.brand);
+                //this.updateId=this.multipleSelection.id;
+                 _this=this;
+                 //发送ajax请求，修改数据
+                 axios({
+                     method: "post",
+                     url:"http://localhost:8080/brand-case/brand/update",
+                     data:_this.brand
+                 }).then(function (resp){
+                     if(resp.data=="success"){
+                         //添加成功
+                         // 1 关闭窗口
+                         _this.updateVisible=false;
+                         // 2 重新查询
+                         _this.selectAll();
+                         // 3 提示用户更新成功
+                         _this.$message({
+                             message: '更新成功',
+                             type: 'success'
+                         });
+                     }
+                 })
             },
+            // 批量删除数据
+            deleteByIds(){
+                //console.log(this.multipleSelection)
 
+                /*
+                [{
+                    "brandName": "华为",
+                    "companyName": "华为技术有限公司",
+                    "description": "万物互联",
+                    "id": 1,
+                    "ordered": 100,
+                    "status": 1,
+                    "statusStr": "启用"
+                },
+                {
+                    "brandName": "小米",
+                    "companyName": "小米科技有限公司",
+                    "description": "are you ok",
+                    "id": 2,
+                    "ordered": 50,
+                    "status": 1,
+                    "statusStr": "启用"
+                },
+                {
+                    "brandName": "格力",
+                    "companyName": "格力电器股份有限公司",
+                    "description": "让世界爱上中国造",
+                    "id": 3,
+                    "ordered": 30,
+                    "status": 1,
+                    "statusStr": "启用"
+                }]
+                 */
+
+                //弹出一个确认框
+                this.$confirm('此操作将删除该文件, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    //用户点击确认按钮
+
+                    // 1 创建id数组 [1,2,3]
+                    for (let i = 0; i < this.multipleSelection.length; i++) {
+                        let selectionElement= this.multipleSelection[i];
+                        this.selectedIds[i]=selectionElement.id;
+                    }
+                    //提升作用域
+                    _this=this;
+                    // 2 发送ajax请求
+                    axios({
+                        method: "post",
+                        url:"http://localhost:8080/brand-case/brand/deleteByIds",
+                        data:_this.selectedIds
+                    }).then(function (resp){
+                        if(resp.data=="success"){
+                            //删除成功
+                            // 2 重新查询
+                            _this.selectAll();
+                            // 3 提示用户添加成功
+                            _this.$message({
+                                message: '删除成功',
+                                type: 'success'
+                            });
+                        }
+                    })
+                }).catch(() => {
+                    //用户点击取消按钮
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    });
+                });
+            },
             //分页
             handleSizeChange(val) {
-                console.log(`每页 ${val} 条`);
+                //console.log(`每页 ${val} 条`);
+                //重新设置当前页码
+                this.pageSize=val;
+                //刷新
+                this.selectAll();
             },
             handleCurrentChange(val) {
-                console.log(`当前页: ${val}`);
+                //用户点击页码
+                //console.log(`当前页: ${val}`);
+                //重新设置当前页码
+                this.currentPage=val;
+                //刷新
+                this.selectAll();
             }
 
         },
         data() {
+
             return {
+                //每页显示的条数
+                pageSize:5,
+                // 总记录数
+                totalCount:100,
                 // 当前页码
-                currentPage: 4,
+                currentPage: 1,
                 // 添加数据对话框是否展示的标记
                 dialogVisible: false,
                 // 更新数据对话框是否展示的标记
@@ -337,7 +458,9 @@
                     companyName: '华为科技有限公司',
                     ordered: '100',
                     status: "1"
-                }]
+                }],
+                //被选中的数组
+                selectedIds:[],
             }
         }
     })
