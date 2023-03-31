@@ -128,4 +128,19 @@ public class BrandServiceImpl implements BrandService {
         sqlSession.close();
         return pageBean;
     }
+
+    //根据单个id删除数据
+    @Override
+    public void deleteById(int id) {
+        // 2 获取SqlSession对象
+        SqlSession sqlSession = factory.openSession();
+        // 3 获取BrandMapper
+        BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
+        // 4 调用方法
+        mapper.deleteById(id);
+        // 5 增删改需要 提交事务
+        sqlSession.commit();
+        // 6 释放资源
+        sqlSession.close();
+    }
 }

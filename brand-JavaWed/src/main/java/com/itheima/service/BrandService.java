@@ -48,7 +48,9 @@ public interface BrandService {
     PageBean<Brand> selectByPageAndCondition(int currentPage,int pageSize,Brand brand);
 
 
-
-
-
+    /**
+     * 根据单个id删除
+     * @param id
+     */
+    void deleteById(int id);
 }

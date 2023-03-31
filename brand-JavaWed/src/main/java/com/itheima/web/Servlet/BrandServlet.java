@@ -120,4 +120,17 @@ public class BrandServlet extends BaseServlet{
         response.setContentType("text/json;charset=utf-8");
         response.getWriter().write(JsonString);
     }
+
+    //批量删除方法
+    public void deleteById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        // 1 接收id
+        BufferedReader br = request.getReader();
+        String params = br.readLine();//json字符串
+        // 2 转为int类型数组
+        int id = JSON.parseObject(params, int.class);
+        // 3 调用方法
+        brandService.deleteById(id);
+        // 4 响应成功标识
+        response.getWriter().write("success");
+    }
 }

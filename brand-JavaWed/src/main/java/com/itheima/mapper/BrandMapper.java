@@ -47,10 +47,6 @@ public interface BrandMapper {
     @Select("select count(*) from tb_brand")
     int selectTotalCount();
 
-
-
-
-
     /**
      * 分页条件查询
      */
@@ -61,4 +57,10 @@ public interface BrandMapper {
      * @return
      */
     int selectTotalCountByCondition(Brand brand);
+
+    /**
+     * 根据单个id删除对应数据
+     */
+    @Delete("delete from tb_brand where id=#{id}")
+    void deleteById(int id);
 }
